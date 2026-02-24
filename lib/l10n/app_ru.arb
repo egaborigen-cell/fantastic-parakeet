@@ -1,0 +1,14 @@
+{
+  "@@locale": "ru",
+  "playClickerGame": "Играть в кликер",
+  "showLeaderboard": "Показать таблицу лидеров",
+  "clickerGame": "Кликер",
+  "youHavePushedTheButtonThisManyTimes": "Вы нажали на кнопку столько раз:",
+  "increment": "Увеличить",
+  "showPlayerName": "Показать имя игрока",
+  "getLanguage": "Получить язык",
+  "pressTheButtonToCallAJavaScriptFunction": "Нажмите кнопку, чтобы вызвать функцию JavaScript.",
+  "helloFromFlutter": "Привет из Flutter!",
+  "flutterDemo": "Демонстрация Flutter",
+  "submitScore": "Отправить счет"
+}

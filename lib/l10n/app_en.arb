@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "playClickerGame": "Play Clicker Game",
+  "showLeaderboard": "Show Leaderboard",
+  "clickerGame": "Clicker Game",
+  "youHavePushedTheButtonThisManyTimes": "You have pushed the button this many times:",
+  "increment": "Increment",
+  "showPlayerName": "Show Player Name",
+  "getLanguage": "Get Language",
+  "pressTheButtonToCallAJavaScriptFunction": "Press the button to call a JavaScript function.",
+  "helloFromFlutter": "Hello from Flutter!",
+  "flutterDemo": "Flutter Demo",
+  "submitScore": "Submit Score"
+}

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
 
   <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="myapp">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
@@ -20,11 +19,13 @@
   <link rel="manifest" href="manifest.json">
 
   <!-- Yandex Games SDK -->
-  <script src="https://yandex.ru/games/sdk/v2"></script>
+  <script src="https://sdk.games.s3.yandex.net/sdk.js"></script>
+  <!-- <script src="https://yandex.ru/games/sdk/v2"></script> -->
 </head>
 <body>
   <script>
     var player;
+    const leaderboardName = 'score'; // Define leaderboard name
 
     function showAlert(message) {
       alert(message);
@@ -36,6 +37,7 @@
         .then(ysdk => {
           console.log('Yandex SDK initialized');
           window.ysdk = ysdk;
+          // get ready 
           ysdk.getPlayer().then(_player => {
             player = _player;
           }).catch(err => {
@@ -68,6 +70,34 @@
         return player.getName();
       } 
       return "Anonymous";
+    }
+
+    // New leaderboard functions
+    function setLeaderboardScore(score) {
+      if (player) {
+        player.setLeaderboardScore(leaderboardName, score);
+      }
+    }
+
+    async function getLeaderboard() {
+      if (window.ysdk) {
+        try {
+          const res = await window.ysdk.getLeaderboard(leaderboardName);
+          // The result from the SDK is an object, we need to stringify it to pass it to Dart
+          return JSON.stringify(res.entries);
+        } catch (err) {
+          console.error('Error getting leaderboard:', err);
+          return null;
+        }
+      }
+      return null;
+    }
+
+    function getEnvironmentLanguage() {
+      if (window.ysdk) {
+        return window.ysdk.environment.i18n.lang;
+      } 
+      return "en";
     }
   </script>
   <script src="flutter_bootstrap.js" async></script>
