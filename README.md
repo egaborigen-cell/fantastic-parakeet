@@ -1,6 +1,6 @@
-# myapp
+# Casual Game project
 
-A new Flutter project.
+A Flutter project using [js_interop](https://pub.dev/packages/js_interop) library to integrate Yandex Games SDK.
 
 ## Getting Started
 
